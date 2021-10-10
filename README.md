@@ -1,1 +1,1 @@
-# Algorithms and Datastructures exercises
+# Algorithms and Data Structures exercises
