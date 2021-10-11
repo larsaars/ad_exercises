@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
             // remove (set false) all the multipliers of i, since they cannot be
             // prime numbers
             for (int j = (i + 1) * 2 - 1; j < k; j += (i + 1)) prime[j] = false;
-        };
+        }
     }
 
     // print out
