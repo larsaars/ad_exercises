@@ -6,8 +6,8 @@ Simulating a register machine. Execute your (not really) 'assembler' programs af
 
 ## Writing a program for the interpreter (commands)
 
->> comment: `ADDRESS` is always the index of an int in the simulated registers array
->> comment: executed is always by the scheme `COMMAND[string] [int] [int]`
+> comment: `ADDRESS` is always the index of an int in the simulated registers array
+> comment: executed is always by the scheme `COMMAND[string] [int] [int]`
 
 command | action
 --- | ---
