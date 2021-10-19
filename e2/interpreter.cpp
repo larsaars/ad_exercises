@@ -41,16 +41,18 @@ int main(int argc, char **argv) {
         // trim string
         cmds[pointer] = utils::trim(cmds[pointer]);
 
-        // increase pointer as default action
-        pointer++;
-
         // skip comments (with ';')
-        if (cmds[pointer][0] == ';')
+        if (cmds[pointer][0] == ';') {
+            pointer++;
             continue;
+        }
 
         // split commands with space
         vector<string> cCmds;
-        utils::tokenize(cmds[pointer - 1], ' ', cCmds);
+        utils::tokenize(cmds[pointer], ' ', cCmds);
+
+        // increase pointer as default action
+        pointer++;
 
         // continue if line is empty
         if (cCmds.empty())
