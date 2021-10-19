@@ -99,6 +99,8 @@ bool execute(int &pointer, int ax[], const vector<string> &cCmds) {
         ax[addr] *= ax[extra];
     } else if (cmd == "div") {
         ax[addr] /= ax[extra];
+    } else if (cmd == "mov" || cmd == "cp") {
+        ax[addr] = ax[extra];
     }
     return false;
 }
