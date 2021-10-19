@@ -42,21 +42,18 @@ class Matrix:
 
         return n_mat
 
-    def multiply(self, m2):
-        if not self.n == m2.m:
-            print(f"Wrong dimensions for matrix multiplication: A:{self.m}x{self.n}, B:{m2.m}x{m2.n}")
+    def multiply(self, M):
+        if not self.n == M.m:
+            print(f"Wrong dimensions for matrix multiplication: A:{self.m}x{self.n}, B:{M.m}x{M.n}")
             return
 
-        n_mat = Matrix(self.n, m2.m)
+        n_matrix = matrix(self.m, M.n)
 
-        product = [[0] * m2.n for _ in range(self.m)]
         for row in range(self.m):
-            for col in range(m2.n):
+            for col in range(M.n):
                 for inner in range(self.n):
-                    product[row][col] += self.matrix[row][inner] * m2.matrix[inner][col]
-        n_mat.matrix = product
-
-        return n_mat
+                    n_matrix.matrix[row][col] += self.matrix[row][inner] * M.matrix[inner][col]
+        return n_matrix
 
 
 if __name__ == '__main__':
