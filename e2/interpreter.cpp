@@ -2,11 +2,10 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "utils.h"
 
 using std::cerr, std::endl, std::cout, std::cin, std::vector, std::string;
 
-
-void tokenize(string const &, char, vector<string> &);
 
 bool execute(int &pointer, int ax[], const vector<string> &cCmds);
 
@@ -38,14 +37,27 @@ int main(int argc, char **argv) {
 
     // execute while pointer is still under the commands size
     while (pointer < cmds.size()) {
-        // split commands with space
-        vector<string> cCmds;
-        tokenize(cmds[pointer], ' ', cCmds);
+        // PREPROCESSING
+        // trim string
+        cmds[pointer] = utils::trim(cmds[pointer]);
 
-        // increase pointer as default
+        // increase pointer as default action
         pointer++;
 
+        // skip comments (with ';')
+        if (cmds[pointer][0] == ';')
+            continue;
+
+        // split commands with space
+        vector<string> cCmds;
+        utils::tokenize(cmds[pointer - 1], ' ', cCmds);
+
+        // continue if line is empty
+        if (cCmds.empty())
+            continue;
+
         // implement the commands
+        // if the execute method returns a true boolean, exit the program (the loop)
         if (execute(pointer, ax, cCmds))
             break;
     }
@@ -61,7 +73,6 @@ bool execute(int &pointer, int ax[], const vector<string> &cCmds) {
         addr = std::stoi(cCmds[1]);
     if (cCmds.size() > 2)
         extra = std::stoi(cCmds[2]);
-
     if (cmd == "jez") {
         if (ax[addr] == 0) pointer = extra;
     } else if (cmd == "jnz") {
@@ -88,15 +99,4 @@ bool execute(int &pointer, int ax[], const vector<string> &cCmds) {
         ax[addr] /= ax[extra];
     }
     return false;
-}
-
-void tokenize(string const &str, char delim,
-              vector<string> &out) {
-    size_t start;
-    size_t end = 0;
-
-    while ((start = str.find_first_not_of(delim, end)) != string::npos) {
-        end = str.find(delim, start);
-        out.push_back(str.substr(start, end - start));
-    }
 }
