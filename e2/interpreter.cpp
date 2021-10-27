@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 #include "utils.h"
+#include <chrono>
+#include <thread>
 
 using std::cerr, std::endl, std::cout, std::cin, std::vector, std::string;
 
@@ -33,7 +35,6 @@ int main(int argc, char **argv) {
             cmds.emplace_back(bin);
     } else
         file.clear();
-
 
     // execute while pointer is still under the commands size
     while (pointer < cmds.size()) {
