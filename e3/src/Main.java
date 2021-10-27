@@ -14,11 +14,13 @@ public class Main {
         System.out.println(maxPartSum(matrix[0]));
     }
 
-    /* private static int maxPartSum(int[][] matrix) {
+    private static int maxPartSum(int[][] matrix) {
         // accessing a 2d array:
         // matrix[columnIndex][rowIndex]
 
         int columnLen = matrix.length, rowLen = matrix[0].length;
+
+        int max = Integer.MIN_VALUE;
 
         for (int l = 0; l < rowLen; l++) {
             // the row index limiter l
@@ -34,18 +36,18 @@ public class Main {
 
                 // loop through the columns (through all, since we cannot conclude that a global max is also still max when
                 // dependent to two-dimensionality)
-                for (int j = 0; j < columnLen; j++) { // column looper
+                // build 2 dim array v for making problem 1dim
+                int[] v = new int[columnLen];
+                for (int j = 0; j < columnLen; j++)  // column looper
+                    v[i] += matrix[j][i];
 
-                }
-
+                // get the greatest partial sum of v
+                limitedMax = Math.max(maxPartSum(v), limitedMax);
             }
 
+            max = Math.max(limitedMax, max);
         }
-        return 0;
-    } */
-
-    private static int maxPartSum(int[][] m) {
-        
+        return max;
     }
 
     private static int maxPartSum(int[] a) {
