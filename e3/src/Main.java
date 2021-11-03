@@ -10,11 +10,11 @@ public class Main {
                 {1, 2, -3, -4, 5, -6, 7}
         };
 
-        System.out.println(maxPartSum(matrix));
+        System.out.println(kadane2D(matrix));
         System.out.println(maxPartSum(matrix[0]));
     }
 
-    private static int maxPartSum(int[][] matrix) {
+    /*private static int maxPartSum(int[][] matrix) {
         // accessing a 2d array:
         // matrix[columnIndex][rowIndex]
 
@@ -48,7 +48,7 @@ public class Main {
             max = Math.max(limitedMax, max);
         }
         return max;
-    }
+    }*/
 
     private static int maxPartSum(int[] a) {
         // {1,2,-1,7,3,2,9}
