@@ -17,7 +17,7 @@ public class BSTMain {
 
         TreePrinter.print(bst.root);
 
-        bst.deleteValue(20);
+        bst.delete(20);
 
         TreePrinter.print(bst.root);
     }
