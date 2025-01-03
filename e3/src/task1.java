@@ -1,5 +1,5 @@
 
-public class Main {
+public class task1 {
 
     public static void main(String[] args) {
         int[][] matrix = {
@@ -10,8 +10,8 @@ public class Main {
                 {1, 2, -3, -4, 5, -6, 7}
         };
 
-        System.out.println(kadane2D(matrix));
-        System.out.println(maxPartSum(matrix[0]));
+//        System.out.println(kadane2D(matrix));
+//        System.out.println(maxPartSum(matrix[0]));
     }
 
     /*private static int maxPartSum(int[][] matrix) {
