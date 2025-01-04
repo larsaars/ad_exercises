@@ -1,3 +1,5 @@
+package bst;
+
 import java.util.Comparator;
 
 public class BST<T> {
@@ -8,18 +10,18 @@ public class BST<T> {
         this.comparator = comparator;
     }
 
-    private void insert(Node<T> currentRoot, Node<T> element) {
-        if (comparator.compare(element.value, currentRoot.value) <= 0) {
+    private void insert(Node<T> currentRoot, Node<T> newNode) {
+        if (comparator.compare(newNode.value, currentRoot.value) <= 0) {
             if (currentRoot.left == null) {
-                currentRoot.left = element;
+                currentRoot.left = newNode;
             } else {
-                insert(currentRoot.left, element);
+                insert(currentRoot.left, newNode);
             }
         } else {
             if (currentRoot.right == null) {
-                currentRoot.right = element;
+                currentRoot.right = newNode;
             } else {
-                insert(currentRoot.right, element);
+                insert(currentRoot.right, newNode);
             }
         }
     }
@@ -70,7 +72,7 @@ public class BST<T> {
     }
 
 
-    private Node<T> findMin(Node<T> node) {
+    public Node<T> findMin(Node<T> node) {
         while (node.left != null) {
             node = node.left; // Go to the leftmost node
         }
