@@ -1,6 +1,9 @@
-import avltree.AVLTree;
-import bst.BST;
-import rbtree.RBTree;
+package trees;
+
+import trees.avltree.AVLTree;
+import trees.bst.BST;
+import trees.rbtree.RBTree;
+import utils.ArrayUtils;
 
 import java.util.Random;
 
@@ -12,7 +15,7 @@ public class TreesTimeComparisonMain {
 
         // compare time taken to insert n random numbers in AVL tree and BST
         int points = 1000000;
-        int[] pointsArray = new int[points];
+        var pointsArray = new Integer[points];
 
         for (int i = 0; i < points; i++) {
             pointsArray[i] = random.nextInt(points * 10);
@@ -50,6 +53,8 @@ public class TreesTimeComparisonMain {
         System.out.println("Time taken to insert " + points + " random numbers in BST: " + (System.currentTimeMillis() - start) + "ms");
 
         // DELETION
+        ArrayUtils.shuffle(pointsArray);
+
         // AVL
         start = System.currentTimeMillis();
 

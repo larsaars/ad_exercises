@@ -1,4 +1,4 @@
-package rbtree;
+package trees.rbtree;
 
 import utils.PrintableNode;
 

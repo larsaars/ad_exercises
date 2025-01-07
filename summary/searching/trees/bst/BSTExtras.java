@@ -1,4 +1,4 @@
-package bst;
+package trees.bst;
 
 public class BSTExtras {
     public static <T> void deleteIteratively(BST<T> bst, T value) {

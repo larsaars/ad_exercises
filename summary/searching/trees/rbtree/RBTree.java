@@ -1,4 +1,4 @@
-package rbtree;
+package trees.rbtree;
 
 import java.util.Comparator;
 
@@ -168,20 +168,25 @@ public class RBTree<T> {
 
     private RBNode<T> moveRedLeft(RBNode<T> node) {
         flipColors(node);
-        if (isRed(node.right.left)) {
+
+        if (node.right != null && isRed(node.right.left)) {
             node.right = rotateRight(node.right);
             node = rotateLeft(node);
             flipColors(node);
         }
+
         return node;
     }
 
+
     private RBNode<T> moveRedRight(RBNode<T> node) {
         flipColors(node);
-        if (isRed(node.left.left)) {
+
+        if (node.left != null && isRed(node.left.left)) {
             node = rotateRight(node);
             flipColors(node);
         }
+
         return node;
     }
 

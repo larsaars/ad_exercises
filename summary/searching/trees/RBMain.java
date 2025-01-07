@@ -1,5 +1,6 @@
-import bst.BST;
-import rbtree.RBTree;
+package trees;
+
+import trees.rbtree.RBTree;
 import utils.TreeDrawer;
 
 import java.util.Random;

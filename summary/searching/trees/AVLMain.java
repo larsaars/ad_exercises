@@ -1,4 +1,6 @@
-import avltree.AVLTree;
+package trees;
+
+import trees.avltree.AVLTree;
 import utils.TreeDrawer;
 
 import java.util.Random;

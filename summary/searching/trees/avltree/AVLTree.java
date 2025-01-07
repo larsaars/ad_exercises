@@ -1,7 +1,7 @@
-package avltree;
+package trees.avltree;
 
-import bst.BST;
-import bst.Node;
+import trees.bst.BST;
+import trees.bst.Node;
 
 import java.util.Comparator;
 
@@ -76,7 +76,7 @@ public class AVLTree<T> extends BST<T> {
         int balanceFactor = getBalanceFactor(node);
 
         // Left heavy
-        if (balanceFactor > 1) {
+        if (balanceFactor >= 1) {
             if (getBalanceFactor(node.left) < 0) {
                 node.left = rotateLeft(node.left);
             }
@@ -84,7 +84,7 @@ public class AVLTree<T> extends BST<T> {
         }
 
         // Right heavy
-        if (balanceFactor < -1) {
+        if (balanceFactor <= -1) {
             if (getBalanceFactor(node.right) > 0) {
                 node.right = rotateRight(node.right);
             }
