@@ -1,4 +1,4 @@
-package utils;
+package util;
 
 public class ArrayUtils {
     public static <T> void shuffle(T[] array) {

@@ -53,7 +53,7 @@ jeweils damit weitermachen und uebungen dazu machen
 - skip list
 - text search with boyer-moore / naive text search
 
-## Graph algorithms
+## graph.Graph algorithms
 
 - adjacency matrix, adjacency list
 - BFS (breadth first search)
