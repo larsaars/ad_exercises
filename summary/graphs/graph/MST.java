@@ -46,7 +46,7 @@ public class MST {
             }
 
             for (int i = 0; i < graph.numNodes; i++) {
-                if (graph.weightMatrix[edge.dest][i] != 0 && !visited[i]) {
+                if (graph.weightMatrix[edge.dest][i] != Float.POSITIVE_INFINITY && !visited[i]) {
                     pq.add(new Edge(edge.dest, i, graph.weightMatrix[edge.dest][i]));
                 }
             }

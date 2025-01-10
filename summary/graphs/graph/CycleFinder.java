@@ -33,7 +33,7 @@ public class CycleFinder {
 
         for (int neighbor = 0; neighbor < graph.numNodes; neighbor++) {
             // if is no neighbor, continue
-            if (graph.weightMatrix[current][neighbor] == 0) {
+            if (graph.weightMatrix[current][neighbor] == Float.POSITIVE_INFINITY) {
                 continue;
             }
 

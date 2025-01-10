@@ -4,12 +4,23 @@ import java.util.*;
 
 // assuming directed graph
 public class Graph {
-    public final float[][] weightMatrix;  // weight matrix in form of adjacency matrix
+    // weight matrix in form of adjacency matrix
+    // i == j: w = 0; w[i, j] = inf: no edge between i and j
+    public final float[][] weightMatrix;
     public final int numNodes;
 
     public Graph(int numNodes) {
         this.numNodes = numNodes;
         weightMatrix = new float[numNodes][numNodes];
+
+        // fill the weightMatrix
+        for (int i = 0; i < numNodes; i++) {
+            for (int j  = 0; j < numNodes; j++) {
+                if (i != j) {
+                    weightMatrix[i][j] = Float.POSITIVE_INFINITY;
+                }
+            }
+        }
     }
 
     public Graph(float[][] weightMatrix) {
@@ -47,8 +58,8 @@ public class Graph {
     public List<Edge> getEdges() {
         List<Edge> edges = new ArrayList<>();
         for (int i = 0; i < numNodes; i++) {
-            for (int j = i + 1; j < numNodes; j++) {
-                if (weightMatrix[i][j] != 0) {
+            for (int j = 0; j < numNodes; j++) {
+                if (weightMatrix[i][j] != Float.POSITIVE_INFINITY) {
                     edges.add(new Edge(i, j, weightMatrix[i][j]));
                 }
             }
@@ -69,7 +80,7 @@ public class Graph {
             System.out.print(current + " ");
 
             for (int i = 0; i < numNodes; i++) {
-                if (weightMatrix[current][i] > 0 && !visited[i]) {
+                if (weightMatrix[current][i] != Float.POSITIVE_INFINITY && !visited[i]) {
                     visited[i] = true;
                     queue.add(i);
                 }
@@ -88,7 +99,7 @@ public class Graph {
         System.out.print(vertex + " ");
 
         for (int i = 0; i < numNodes; i++) {
-            if (weightMatrix[vertex][i] > 0 && !visited[i]) {
+            if (weightMatrix[vertex][i] != Float.POSITIVE_INFINITY && !visited[i]) {
                 dfsUtil(i, visited);
             }
         }
