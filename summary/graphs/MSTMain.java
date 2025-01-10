@@ -1,5 +1,6 @@
-import graph.Edge;
 import graph.Graph;
+import graph.Edge;
+import graph.MST;
 
 public class MSTMain {
     public static void main(String[] args) {
@@ -12,14 +13,14 @@ public class MSTMain {
         };
 
         Graph graph = new Graph(weightMatrix);
-        Graph mst = graph.kruskalMST();
+        Graph mst = MST.kruskal(graph);
 
         System.out.println("Edges of MST with Kruskal:");
         for (Edge edge : mst.getEdges()) {
             System.out.println(edge.src + " - " + edge.dest + ": " + edge.weight);
         }
 
-        mst = graph.primMST(0);
+        mst = MST.prim(graph, 0);
         System.out.println("\nEdges of MST with Prim:");
         for (Edge edge : mst.getEdges()) {
             System.out.println(edge.src + " - " + edge.dest + ": " + edge.weight);
