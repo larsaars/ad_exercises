@@ -15,7 +15,7 @@ public class Graph {
 
         // fill the weightMatrix
         for (int i = 0; i < numNodes; i++) {
-            for (int j  = 0; j < numNodes; j++) {
+            for (int j = 0; j < numNodes; j++) {
                 if (i != j) {
                     weightMatrix[i][j] = Float.POSITIVE_INFINITY;
                 }
@@ -105,12 +105,14 @@ public class Graph {
         }
     }
 
-
-    public void printWeightMatrix() {
-        System.out.println("Adjacency Matrix:");
-        for (int i = 0; i < numNodes; i++) {
-            for (int j = 0; j < numNodes; j++) {
-                System.out.print(weightMatrix[i][j] + " ");
+    public static <T> void printMatrix(T[][] matrix) {
+        for (T[] ts : matrix) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (ts[j] == null) {
+                    System.out.print("N ");
+                } else {
+                    System.out.print(ts[j] + " ");
+                }
             }
             System.out.println();
         }

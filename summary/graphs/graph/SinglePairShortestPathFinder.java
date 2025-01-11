@@ -4,7 +4,7 @@ import util.Pair;
 
 import java.util.*;
 
-public class ShortestPathFinder {
+public class SinglePairShortestPathFinder {
 
     public static List<Integer> dijkstra(Graph graph, int startNode, int endNode) {
         var explored = new boolean[graph.numNodes];
