@@ -45,6 +45,16 @@ public class Graph {
         weightMatrix[src][dest] = 1;
     }
 
+    public void addEdge(Edge edge) {
+        weightMatrix[edge.src][edge.dest] = edge.weight;
+    }
+
+    public void addEdges(Edge... edges) {
+        for (Edge e : edges) {
+            addEdge(e);
+        }
+    }
+
     public void addEdges(int[]... edges) {
         for (int[] edge : edges) {
             addEdge(edge[0], edge[1], edge[2]);

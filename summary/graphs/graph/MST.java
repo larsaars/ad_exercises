@@ -45,9 +45,10 @@ public class MST {
                 mst.addEdge(edge.src, edge.dest, edge.weight);
             }
 
-            for (int i = 0; i < graph.numNodes; i++) {
-                if (graph.weightMatrix[edge.dest][i] != Float.POSITIVE_INFINITY && !visited[i]) {
-                    pq.add(new Edge(edge.dest, i, graph.weightMatrix[edge.dest][i]));
+            for (int node = 0; node < graph.numNodes; node++) {
+                // is neighbor and has not been visited yet
+                if (graph.weightMatrix[edge.dest][node] != Float.POSITIVE_INFINITY && !visited[node]) {
+                    pq.add(new Edge(edge.dest, node, graph.weightMatrix[edge.dest][node]));
                 }
             }
         }
